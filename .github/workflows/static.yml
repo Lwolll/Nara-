@@ -1,0 +1,275 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Surprise untuk Nara 🎉</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-1:#ffe6f0;
+      --pink-2:#ffb3d1;
+      --accent:#ff6aa6;
+      --card:#ffffffee;
+      --muted:#7a5b6b;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      background: radial-gradient(circle at 10% 20%, var(--pink-1), transparent 20%),
+                  radial-gradient(circle at 90% 80%, #ffddee55, transparent 20%),
+                  linear-gradient(135deg,var(--pink-1),var(--pink-2));
+      display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+    .stage{width:980px;max-width:100%;background:linear-gradient(180deg, #ffffffcc, #ffffffaa);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.12);overflow:hidden;position:relative}header{padding:28px 32px 10px;display:flex;align-items:center;gap:16px}
+.logo{width:84px;height:84px;border-radius:18px;background:linear-gradient(180deg,var(--accent),#ff81b7);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:22px;box-shadow:0 6px 18px rgba(255,106,166,0.26)}
+.title{line-height:1}
+.title h1{margin:0;font-size:20px}
+.title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+main{padding:18px 32px 36px;display:flex;gap:24px;align-items:center}
+.left{flex:1;min-width:280px}
+.card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+.joke{font-weight:600;font-size:18px;margin:0;padding:8px 0;color:#5a2f45}
+.sub{color:var(--muted);margin-top:8px;font-size:14px}
+
+.btns{display:flex;gap:12px;margin-top:14px}
+.btn{padding:10px 14px;border-radius:12px;border:0;background:linear-gradient(180deg,#fff,#ffd6ea);box-shadow:inset 0 -3px 0 rgba(0,0,0,0.04);cursor:pointer;font-weight:700}
+.btn:active{transform:translateY(2px)}
+
+.nailong-wrap{width:360px;display:flex;align-items:center;justify-content:center}
+
+/* Nailong (cute long creature) */
+.nailong{width:300px;height:300px;position:relative}
+.body{position:absolute;left:30px;top:80px;width:220px;height:120px;border-radius:120px 120px 90px 90px; background:linear-gradient(90deg,#fff 10%,#fff1f6 60%);border:6px solid #ffd1e6;box-shadow:0 10px 30px rgba(255,106,166,0.18)}
+.head{position:absolute;left:0;top:40px;width:140px;height:140px;border-radius:70px;background:linear-gradient(180deg,#fff,#ffe9f3);border:6px solid #ffb3d1;display:flex;align-items:center;justify-content:center}
+.eye{width:22px;height:22px;border-radius:50%;background:#2b1a2a;position:absolute;top:44px;box-shadow:0 6px 0 rgba(0,0,0,0.06)}
+.eye.right{left:80px}
+.eye.left{left:40px}
+.cheek{width:26px;height:16px;border-radius:12px;background:#ffd6ea;position:absolute;top:86px;left:48px;transform:rotate(-12deg)}
+.cheek.right{left:88px;transform:rotate(12deg)}
+.nose{position:absolute;top:64px;left:62px;width:40px;height:24px;background:linear-gradient(90deg,#ff9ac2,#ff6aa6);border-radius:18px}
+.smile{position:absolute;top:92px;left:60px;width:60px;height:28px;border-bottom:3px solid rgba(0,0,0,0.1);border-radius:0 0 60px 60px}
+.tail{position:absolute;right:-20px;top:40px;width:180px;height:24px;border-radius:30px;background:linear-gradient(90deg,#ffd6ea,#ffb3d1);transform-origin:left center}
+
+/* animations */
+.nailong.anim .body{animation:float 3s ease-in-out infinite}
+.nailong.anim .head{animation:head-bob 3s ease-in-out infinite}
+.tail.wave{animation:tail-wave 0.9s ease-in-out infinite}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+@keyframes head-bob{0%{transform:rotate(0deg)}25%{transform:rotate(-4deg)}50%{transform:rotate(0deg)}75%{transform:rotate(4deg)}100%{transform:rotate(0deg)}}
+@keyframes tail-wave{0%{transform:rotate(0deg)}50%{transform:rotate(-14deg)}100%{transform:rotate(0deg)}}
+
+/* silly speech bubble */
+.bubble{position:relative;margin-top:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff8);box-shadow:0 6px 18px rgba(0,0,0,0.06);font-weight:700}
+.bubble:after{content:' ';position:absolute;left:20px;bottom:-12px;border-width:12px;border-style:solid;border-color:#fff transparent transparent transparent}
+
+/* final reveal */
+.reveal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,245,250,0.9));backdrop-filter:blur(3px);flex-direction:column;gap:12px;padding:28px;text-align:center;transform:translateY(30px);opacity:0;pointer-events:none;border-radius:20px}
+.reveal.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.reveal h2{margin:0;font-size:26px}
+.reveal p{margin:0;color:var(--muted)}
+
+footer{padding:12px 28px;background:transparent;text-align:right;color:#9a6b82;font-size:12px}
+
+/* small screens */
+@media (max-width:760px){main{flex-direction:column}.nailong-wrap{order:-1}}
+
+  </style>
+</head>
+<body>
+  <div class="stage" role="application" aria-label="Surprise untuk Nara">
+    <header>
+      <div class="logo">N!</div>
+      <div class="title">
+        <h1>Surprise Interaktif</h1>
+        <p>Buka link ini dan jangan tertawa sendiri ya (boleh kok).</p>
+      </div>
+    </header><main>
+  <div class="left">
+    <div class="card">
+      <div class="joke" id="joke">Hai! Aku robot cinta (tapi lagi cuti), jadi aku kirim ini aja.</div>
+      <div class="sub" id="sub">Tekan tombol di bawah untuk memulai. Kalau diajak bercanda, Nailong siap sedia.</div>
+
+      <div class="btns">
+        <button class="btn" id="btn-silly">Mulai (Biar Absurd)</button>
+        <button class="btn" id="btn-final">Buka Hadiah</button>
+      </div>
+
+      <div class="bubble" id="bubble">Nailong bilang: "Aku bukan dinosaurus, aku cuma panjang."</div>
+    </div>
+  </div>
+
+  <div class="nailong-wrap">
+    <div class="nailong" id="nailong" aria-hidden="true">
+      <div class="head"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="cheek"></div>
+      <div class="cheek right"></div>
+      <div class="nose"></div>
+      <div class="smile"></div>
+      <div class="body"></div>
+      <div class="tail" id="tail"></div>
+    </div>
+  </div>
+
+  <div class="reveal" id="reveal">
+    <h2>Untuk Nara ❤️</h2>
+    <p>Kamu itu lucu. Dan aku juga. Tapi kamu lebih lucu (dan lebih manis).</p>
+    <p style="font-weight:700;margin-top:6px">Mau dinner? Atau mager bareng? Pilih aja, yang penting barengku.</p>
+    <button class="btn" id="love-btn">Aku Terima 💖</button>
+  </div>
+</main>
+
+<footer>Designed with nonsense & a little love.</footer>
+
+<!-- confetti canvas -->
+<canvas id="confetti" style="position:absolute;inset:0;pointer-events:none"></canvas>
+
+  </div>  <script>
+    // Elements
+    const btnSilly = document.getElementById('btn-silly');
+    const btnFinal = document.getElementById('btn-final');
+    const joke = document.getElementById('joke');
+    const sub = document.getElementById('sub');
+    const bubble = document.getElementById('bubble');
+    const nailong = document.getElementById('nailong');
+    const tail = document.getElementById('tail');
+    const reveal = document.getElementById('reveal');
+    const loveBtn = document.getElementById('love-btn');
+
+    // silly jokes pool (absurd & garing)
+    const jokes = [
+      'Nailong lupa carinya kunci hati. Katanya kunci itu kecil, kayak kunci motor.','Aku sempat nanya ke Nailong: "Kenapa kamu panjang?" Dia jawab: "Supaya bisa ambil remote yang jatuh di bawah sofa."',
+      'Kalau cinta itu matematika, Nailong bilang: 2+2 = 5 (karena ada kamu di situ).',
+      'Nailong pernah bilang: "Aku vegetarian tapi makan hati." — tenang, itu hati permen karet.'
+    ];
+
+    // Small helper to pick random
+    function rnd(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+    // Start absurd sequence
+    btnSilly.addEventListener('click', ()=>{
+      nailong.classList.add('anim');
+      tail.classList.add('wave');
+      // show quick absurd messages
+      let i = 0;
+      const seq = [
+        'Loading joke... (90% absurdity)',
+        rnd(jokes),
+        'Nailong: *goyang kepala* (ini bahasa: "aku geli")',
+        'ALERT: Gelombang manis mendekat. Tutup payungmu.'
+      ];
+      sub.textContent = 'Siap-siap ngakak...';
+      bubble.textContent = seq[i];
+      const t = setInterval(()=>{
+        i++;
+        if(i < seq.length){
+          bubble.classList.add('pop');
+          // tiny bounce
+          bubble.animate([{transform:'translateY(6px)'},{transform:'translateY(0)'}],{duration:260,easing:'ease-out'});
+          bubble.textContent = seq[i];
+        } else {
+          clearInterval(t);
+          sub.textContent = 'Nailong: mau tombol "Buka Hadiah"?';
+        }
+      },1800);
+    });
+
+    // Final reveal + confetti
+    btnFinal.addEventListener('click', ()=>{
+      // silly micro-fail first
+      bubble.textContent = 'Menghitung cinta... (harap sabar, proses 100%)';
+      sub.textContent = 'Memeriksa apakah Nara online...';
+      setTimeout(()=>{
+        // tiny fake error
+        bubble.textContent = 'Error 418: Aku adalah teko. Tapi aku juga jatuh cinta.';
+        sub.textContent = 'Ups, sistem bercanda. Buka hadiahnya ya.';
+        setTimeout(()=>{
+          reveal.classList.add('show');
+          triggerConfetti();
+        },1200);
+      },1400);
+    });
+
+    // love button small effect
+    loveBtn.addEventListener('click', ()=>{
+      loveBtn.textContent = 'Yes! Ayo 😍';
+      loveBtn.disabled = true;
+      loveBtn.style.transform = 'scale(0.98)';
+    });
+
+    // confetti implementation (simple particles)
+    function triggerConfetti(){
+      const c = document.getElementById('confetti');
+      c.width = c.clientWidth * devicePixelRatio;
+      c.height = c.clientHeight * devicePixelRatio;
+      const ctx = c.getContext('2d');
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+
+      const colors = ['#ff6aa6','#ffd6ea','#ff9ac2','#fff6f9'];
+      const particles = [];
+      for(let i=0;i<120;i++){
+        particles.push({
+          x: Math.random()*c.clientWidth,
+          y: -Math.random()*200,
+          w: 6+Math.random()*10,
+          h: 6+Math.random()*10,
+          vx: -2+Math.random()*4,
+          vy: 2+Math.random()*4,
+          r: Math.random()*360,
+          color: colors[Math.floor(Math.random()*colors.length)],
+          rotSpeed: -6 + Math.random()*12
+        });
+      }
+
+      let t0 = null;
+      function draw(t){
+        if(!t0) t0 = t; const dt = (t-t0)/1000;
+        ctx.clearRect(0,0,c.clientWidth,c.clientHeight);
+        particles.forEach(p=>{
+          p.x += p.vx;
+          p.y += p.vy + 0.5;
+          p.vy *= 1.002;
+          p.r += p.rotSpeed*0.1;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.r*Math.PI/180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          ctx.restore();
+        });
+        // continue until most are out
+        const alive = particles.some(p=>p.y < c.clientHeight + 50);
+        if(alive) requestAnimationFrame(draw);
+        else ctx.clearRect(0,0,c.clientWidth,c.clientHeight);
+      }
+      requestAnimationFrame(draw);
+    }
+
+    // small accessibility: allow keyboard activation
+    btnSilly.addEventListener('keyup', (e)=>{ if(e.key==='Enter') btnSilly.click(); });
+    btnFinal.addEventListener('keyup', (e)=>{ if(e.key==='Enter') btnFinal.click(); });
+
+    // tiny playful auto nudges after idle
+    let idleTimer = setTimeout(nudge, 5000);
+    function nudge(){
+      bubble.animate([{transform:'translateY(0)'},{transform:'translateY(-6px)'},{transform:'translateY(0)'}],{duration:900,iterations:2});
+    }
+    document.addEventListener('mousemove', ()=>{clearTimeout(idleTimer); idleTimer = setTimeout(nudge,10000)});
+
+    // small easter egg: click head 5x -> secret line
+    let headClicks = 0;
+    nailong.querySelector('.head').addEventListener('click', ()=>{
+      headClicks++;
+      if(headClicks===5){
+        bubble.textContent = 'Easter egg: Nara, kamu bintang paling terang (ini rahasia).';
+        headClicks = 0;
+      }
+    });
+  </script></body>
+</html>
